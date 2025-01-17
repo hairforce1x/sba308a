@@ -1,6 +1,7 @@
 const apiUrl = "https://v2.jokeapi.dev/joke/any"
 const displaySetup = document.getElementById("joke-setup");
 const displayDelivery = document.getElementById("joke-delivery");
+const button = document.querySelector("button");
 
 async function getJoke() { // fetches random joke
     try {
@@ -17,4 +18,11 @@ async function getJoke() { // fetches random joke
         console.log(error)
     }
 }
-getJoke()
+
+
+button.addEventListener("click", handleClick);
+
+function handleClick(){
+    console.log("clicked")
+    getJoke()
+}
