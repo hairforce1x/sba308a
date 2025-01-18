@@ -2,7 +2,8 @@ const apiUrl = "https://v2.jokeapi.dev/joke/any"
 const displaySetup = document.getElementById("joke-setup");
 const displayDelivery = document.getElementById("joke-delivery");
 const savedJokes = document.getElementById("saved-jokes");
-const button = document.querySelector("button");
+const reqButton = document.getElementById("request-btn");
+const saveButton = document.getElementById("save-btn");
 let jokesArray = [];
 
 
@@ -18,17 +19,22 @@ async function getJoke() { // fetches random joke
             displaySetup.textContent = `${joke.setup}`;
             displayDelivery.textContent = `${joke.delivery}`;
             jokesArray.push(joke);
-            console.log(jokesArray)
-            console.log(jokesArray[1])
         }
+        console.log(jokesArray)
     } catch (error) {
         console.log(error)
     }
 }
 
 
-button.addEventListener("click", handleClick);
+reqButton.addEventListener("click", handleClick);
 
 function handleClick(){
     getJoke()
+}
+
+saveButton.addEventListener("click", saveClick);
+
+function saveClick(){
+    console.log(jokesArray)
 }
