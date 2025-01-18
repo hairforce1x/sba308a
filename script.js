@@ -5,6 +5,7 @@ const savedJokes = document.getElementById("saved-jokes");
 const reqButton = document.getElementById("request-btn");
 const saveButton = document.getElementById("save-btn");
 let jokesArray = [];
+let currentJoke;
 
 
 async function getJoke() { // fetches random joke
@@ -14,18 +15,16 @@ async function getJoke() { // fetches random joke
         // console.log(joke)
         if (joke.type === 'single') {
             displaySetup.textContent = `${joke.joke}`;
-            jokesArray.push(joke);
         } else {
             displaySetup.textContent = `${joke.setup}`;
             displayDelivery.textContent = `${joke.delivery}`;
-            jokesArray.push(joke);
         }
-        console.log(jokesArray)
+        currentJoke = joke;
+        console.log(currentJoke.flags[3])
     } catch (error) {
         console.log(error)
     }
 }
-
 
 reqButton.addEventListener("click", handleClick);
 
@@ -36,5 +35,8 @@ function handleClick(){
 saveButton.addEventListener("click", saveClick);
 
 function saveClick(){
-    console.log(jokesArray)
+    let newOption = document.createElement("option");
+    newOption.value = ''
+    savedJokes.appendChild(newOption)
+    console.log(savedJokes)
 }
