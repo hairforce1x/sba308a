@@ -1,7 +1,6 @@
 const apiUrl = "https://v2.jokeapi.dev/joke/any"
 const displaySetup = document.getElementById("joke-setup");
 const displayDelivery = document.getElementById("joke-delivery");
-const savedJokes = document.getElementById("saved-jokes");
 const reqButton = document.getElementById("request-btn");
 const saveButton = document.getElementById("save-btn");
 let jokesArray = [];
@@ -39,10 +38,10 @@ saveButton.addEventListener("click", saveClick);
 
 function saveClick() {
     const savedJokes = document.getElementById("saved-jokes");
-    const newOption = document.createElement("option");
-    console.log(currentJoke.setup)
-    newOption.textContent = `${currentJoke.setup}`
+    const newOption = document.createElement("option"); // Doesn't work for one-liners
+    newOption.textContent = `${currentJoke.setup}`;
+    newOption.value = currentJoke.delivery;
 
-    savedJokes.appendChild(newOption)
-    console.log(savedJokes)
+    savedJokes.appendChild(newOption);
+    console.log(savedJokes);
 }

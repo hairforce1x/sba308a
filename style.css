@@ -1,0 +1,35 @@
+body {
+    background-color: aquamarine;
+    /* width: 80%; */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+}
+
+select {
+    background-color: ;
+    height: 40px;
+    width: 80%;
+}
+
+button {
+    border: none;
+    border-radius: 10%;
+    background-color: black;
+    color: white;
+    margin: 5px;
+    width: 69px;
+}
+
+#joke-setup, #joke-delivery {
+    font-size:4vmax;
+    
+}
+
+#joke-delivery {
+    margin-bottom: 55px;
+}
